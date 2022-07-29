@@ -13,9 +13,10 @@
 // holdNumber.data = 3;
 // const holdString = new HoldString();
 // holdString.data = "3";
-class HoldAnything {
-}
-const holdNumber = new HoldAnything();
-holdNumber.data = 3;
-const holdString = new HoldAnything();
-holdString.data = "3";
+// class HoldAnything<TypeOfData> {
+//   data: TypeOfData;
+// }
+// const holdNumber = new HoldAnything<number>();
+// holdNumber.data = 3;
+// const holdString = new HoldAnything<string>();
+// holdString.data = "3";

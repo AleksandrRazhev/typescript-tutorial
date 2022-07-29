@@ -1,18 +1,30 @@
-import { CsvFileREader } from "./csvFileReader";
-import { MatchData } from "./csvFileReader";
 import { dateStringToDate } from "./util";
 import { MatchResult } from "./MatchResult";
 
-export class MatchReader extends CsvFileREader {
-  mapRow(item: string[]): MatchData {
-    return [
-      dateStringToDate(item[0]),
-      item[1],
-      item[2],
-      parseInt(item[3]),
-      parseInt(item[4]),
-      item[5] as MatchResult,
-      item[6],
-    ];
+type MatchData = [Date, string, string, number, number, MatchResult, string];
+
+interface DataReader {
+  read(): void;
+  data: string[][];
+}
+
+export class MatchReader {
+  matches: MatchData[] = [];
+
+  constructor(public reader: DataReader) {}
+
+  load(): void {
+    this.reader.read();
+    this.matches = this.reader.data.map(
+      (item: string[]): MatchData => [
+        dateStringToDate(item[0]),
+        item[1],
+        item[2],
+        parseInt(item[3]),
+        parseInt(item[4]),
+        item[5] as MatchResult,
+        item[6],
+      ]
+    );
   }
 }
