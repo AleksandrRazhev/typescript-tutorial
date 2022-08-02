@@ -30,20 +30,20 @@
 
 // Compositions misconception
 
-const rectangular = (state) => ({
-  area: () => state.height * state.width,
-});
+// const rectangular = (state) => ({
+//   area: () => state.height * state.width,
+// });
 
-const openable = (state) => ({
-  toggleOpen: () => {
-    state.open = !state.open;
-  },
-});
-const buildRectangleWindow = (state) =>
-  Object.assign(state, rectangular(state), openable(state));
+// const openable = (state) => ({
+//   toggleOpen: () => {
+//     state.open = !state.open;
+//   },
+// });
+// const buildRectangleWindow = (state) =>
+//   Object.assign(state, rectangular(state), openable(state));
 
-const rectangleWindow = buildRectangleWindow({
-  height: 30,
-  width: 20,
-  open: false,
-});
+// const rectangleWindow = buildRectangleWindow({
+//   height: 30,
+//   width: 20,
+//   open: false,
+// });
